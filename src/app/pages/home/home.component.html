@@ -1,0 +1,104 @@
+<!-- home.component.html -->
+<div class="home-container">
+    <img src="../assets/lg.png" alt="Logo" class="logo" />
+    <div class="button-container">
+      <div  *ngIf="!alerta" class="button" (click)="showAcceptModal()">
+        <p>Iniciar Alerta</p> <!-- Aqui você pode mudar o texto -->
+
+            <svg width="80%" height="65%" fill="none"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9.22843V14.7716C3 15.302 3.21071 15.8107 3.58579 16.1858L7.81421 20.4142C8.18929 20.7893 8.69799 21 9.22843 21H14.7716C15.302 21 15.8107 20.7893 16.1858 20.4142L20.4142 16.1858C20.7893 15.8107 21 15.302 21 14.7716V9.22843C21 8.69799 20.7893 8.18929 20.4142 7.81421L16.1858 3.58579C15.8107 3.21071 15.302 3 14.7716 3H9.22843C8.69799 3 8.18929 3.21071 7.81421 3.58579L3.58579 7.81421C3.21071 8.18929 3 8.69799 3 9.22843Z" stroke="#C0A630" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 8V13" stroke="#C0A630" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 16V15.9888" stroke="#C0A630" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+
+      </div>
+
+      <div *ngIf="alerta" class="buttonoff" (click)="showConfirmModalAlert()">
+        <p style="color: #aaaaaa;">Iniciar AlertaA</p> <!-- Aqui você pode mudar o texto -->
+
+            <svg width="80%" height="65%" fill="none"viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9.22843V14.7716C3 15.302 3.21071 15.8107 3.58579 16.1858L7.81421 20.4142C8.18929 20.7893 8.69799 21 9.22843 21H14.7716C15.302 21 15.8107 20.7893 16.1858 20.4142L20.4142 16.1858C20.7893 15.8107 21 15.302 21 14.7716V9.22843C21 8.69799 20.7893 8.18929 20.4142 7.81421L16.1858 3.58579C15.8107 3.21071 15.302 3 14.7716 3H9.22843C8.69799 3 8.18929 3.21071 7.81421 3.58579L3.58579 7.81421C3.21071 8.18929 3 8.69799 3 9.22843Z" stroke="#aaaaaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 8V13" stroke="#aaaaaa" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 16V15.9888" stroke="#aaaaaa" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+
+      </div>
+
+      <div *ngIf="!alerta" class="button" (click)="showConfirmModal()">
+        <p>Remover Alerta</p> <!-- E aqui também -->
+
+        <svg width="80%" height="65%" fill="#207353" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M208 96c26.5 0 48-21.5 48-48S234.5 0 208 0s-48 21.5-48 48 21.5 48 48 48zm94.5 149.1l-23.3-11.8-9.7-29.4c-14.7-44.6-55.7-75.8-102.2-75.9-36-.1-55.9 10.1-93.3 25.2-21.6 8.7-39.3 25.2-49.7 46.2L17.6 213c-7.8 15.8-1.5 35 14.2 42.9 15.6 7.9 34.6 1.5 42.5-14.3L81 228c3.5-7 9.3-12.5 16.5-15.4l26.8-10.8-15.2 60.7c-5.2 20.8.4 42.9 14.9 58.8l59.9 65.4c7.2 7.9 12.3 17.4 14.9 27.7l18.3 73.3c4.3 17.1 21.7 27.6 38.8 23.3 17.1-4.3 27.6-21.7 23.3-38.8l-22.2-89c-2.6-10.3-7.7-19.9-14.9-27.7l-45.5-49.7 17.2-68.7 5.5 16.5c5.3 16.1 16.7 29.4 31.7 37l23.3 11.8c15.6 7.9 34.6 1.5 42.5-14.3 7.7-15.7 1.4-35.1-14.3-43zM73.6 385.8c-3.2 8.1-8 15.4-14.2 21.5l-50 50.1c-12.5 12.5-12.5 32.8 0 45.3s32.7 12.5 45.2 0l59.4-59.4c6.1-6.1 10.9-13.4 14.2-21.5l13.5-33.8c-55.3-60.3-38.7-41.8-47.4-53.7l-20.7 51.5z"/>
+            </svg>
+      </div>
+
+      <div *ngIf="alerta" class="button" (click)="showAcceptModalStop()">
+        <p>Remover Alerta</p> <!-- E aqui também -->
+
+        <svg width="80%" height="65%" fill="#207353" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M208 96c26.5 0 48-21.5 48-48S234.5 0 208 0s-48 21.5-48 48 21.5 48 48 48zm94.5 149.1l-23.3-11.8-9.7-29.4c-14.7-44.6-55.7-75.8-102.2-75.9-36-.1-55.9 10.1-93.3 25.2-21.6 8.7-39.3 25.2-49.7 46.2L17.6 213c-7.8 15.8-1.5 35 14.2 42.9 15.6 7.9 34.6 1.5 42.5-14.3L81 228c3.5-7 9.3-12.5 16.5-15.4l26.8-10.8-15.2 60.7c-5.2 20.8.4 42.9 14.9 58.8l59.9 65.4c7.2 7.9 12.3 17.4 14.9 27.7l18.3 73.3c4.3 17.1 21.7 27.6 38.8 23.3 17.1-4.3 27.6-21.7 23.3-38.8l-22.2-89c-2.6-10.3-7.7-19.9-14.9-27.7l-45.5-49.7 17.2-68.7 5.5 16.5c5.3 16.1 16.7 29.4 31.7 37l23.3 11.8c15.6 7.9 34.6 1.5 42.5-14.3 7.7-15.7 1.4-35.1-14.3-43zM73.6 385.8c-3.2 8.1-8 15.4-14.2 21.5l-50 50.1c-12.5 12.5-12.5 32.8 0 45.3s32.7 12.5 45.2 0l59.4-59.4c6.1-6.1 10.9-13.4 14.2-21.5l13.5-33.8c-55.3-60.3-38.7-41.8-47.4-53.7l-20.7 51.5z"/>
+            </svg>
+      </div>
+
+    </div>
+    <p *ngIf="alerta" class="error-message">Alerta em andamento!</p>
+  </div>
+
+  <app-modal 
+  *ngIf="showModal"
+  [message]="'Insira o código de autenticação fornecido pelo Gestor:'"
+  [showInput]="true"
+  [showSubmitButton]="true"
+  (closeModal)="onCloseModal()"
+  (inputAction)="onConfirmActionStart($event)">
+</app-modal>
+
+<!-- Modal de Confirmação -->
+<app-modal 
+  *ngIf="showModalConfirm"
+  [message]="'Tem CERTEZA que deseja enviar um alerta?'"
+  [showSubmitButton]="false"
+  [showConfirmButton]="true"
+  [showCancelButton]="false"
+  (closeModal)="onCloseConfirmModal()"
+  (confirmAction)="onAcceptAction($event)">
+</app-modal>
+
+<app-modal 
+  *ngIf="showModalConfirmStop"
+  [message]="'Tem CERTEZA que deseja PARAR o alerta?'"
+  [showSubmitButton]="false"
+  [showConfirmButton]="true"
+  [showCancelButton]="false"
+  (closeModal)="onCloseConfirmModalStop()"
+  (confirmAction)="onAcceptActionStop($event)">
+</app-modal>
+
+<app-modal 
+*ngIf="showModalInputStop"
+[message]="'Insira o código de autenticação fornecido pelo Gestor:'"
+[showInput]="true"
+[showSubmitButton]="true"
+(closeModal)="onCloseModal()"
+(inputAction)="onConfirmActionStop($event)">
+</app-modal>
+
+<!-- Modal com mensagem e 1 botão (Fechar) -->
+<app-modal 
+  *ngIf="showModalCloseOnly"
+  [message]="'Alerta NÃO está em andamento!'"
+  [showSubmitButton]="false"
+  [showConfirmButton]="false"
+  [showCancelButton]="false"
+  (closeModal)="onCloseModal()">
+</app-modal>
+
+<app-modal 
+  *ngIf="showModalCloseOnlyAlert"
+  [message]="'Alerta ESTÁ em andamento!'"
+  [showSubmitButton]="false"
+  [showConfirmButton]="false"
+  [showCancelButton]="false"
+  (closeModal)="onCloseModal()">
+</app-modal>
+  

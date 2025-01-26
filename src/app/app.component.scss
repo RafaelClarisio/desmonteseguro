@@ -1,0 +1,13 @@
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: url('../assets/bg.png') no-repeat center center;
+  background-size: cover;
+}
+.app-container-component {
+  width: 100vw;
+  height: 100vh;
+}

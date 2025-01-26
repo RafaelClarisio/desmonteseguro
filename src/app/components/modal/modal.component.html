@@ -1,0 +1,19 @@
+<div class="modal-overlay" *ngIf="message">
+    <div class="modal">
+      <div class="modal-content">
+        <p class="message">{{ message }}</p>
+  
+        <!-- Condicionalmente renderiza a área de botões -->
+        <div class="modal-actions">
+          <button *ngIf="showConfirmButton" (click)="confirm(true)" class="confirm-btn">Sim</button>
+          <button *ngIf="showCancelButton" (click)="confirm(false)" class="cancel-btn">Não</button>
+          <input *ngIf="showInput" [(ngModel)]="inputValue" placeholder="Digite algo" class="input-field"/>
+          <button *ngIf="showSubmitButton" (click)="submitInput()" class="submit-btn">Enviar</button>
+        </div>
+  
+        <!-- Botão de fechar -->
+        <button (click)="close()" class="close-btn">Fechar</button>
+      </div>
+    </div>
+  </div>
+  

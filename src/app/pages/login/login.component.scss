@@ -1,0 +1,73 @@
+@use '../../../styles.scss' as *;
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+//   background: url('../assets/bg.png') no-repeat center center;
+  background-size: cover;
+
+  .error-message {
+    color: $error-mensage;
+  }
+
+  .logo {
+    width: 250px;
+    margin-bottom: 2rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+
+    .label {
+        font-size: 1rem;
+        color: $label-no-foco;
+        margin: 0.5rem 0 0.25rem;
+        transition: color 0.2s;
+      }
+    
+      &:focus-within .label {
+        color: $label-foco;
+      }
+
+    .input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid $input-stroke;
+      border-radius: 5px;
+      background-color: $input-bg;
+      margin-bottom: 1rem;
+      box-shadow: $button-shadow;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $label-foco;
+        outline: none;
+      }
+    }
+
+    .login-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: $label-foco;
+      background-color: $input-bg;
+      border: 1px solid $button-stroke;
+      border-radius: 5px;
+      box-shadow: $button-shadow;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
