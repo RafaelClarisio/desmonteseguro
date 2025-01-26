@@ -64,5 +64,26 @@
         padding-top: 3%;
         font-size: 24px
       }
-    
+      .inputs {
+        width: 15%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border: 1px solid $input-stroke;
+        border-radius: 5px;
+        background-color: $input-bg;
+        margin-bottom: 1rem;
+        box-shadow: $button-shadow;
+        transition: border-color 0.3s;
+        outline: none;
+        justify-content: center;
+        justify-self: center;
+      }
+      .admin-role {
+        padding-top: 5%;
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
   }

@@ -1,0 +1,22 @@
+CREATE DATABASE desmonteseguro;
+
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,   -- ID único para cada usuário
+    usuario VARCHAR(255) UNIQUE NOT NULL,  -- Nome de usuário, único e não nulo
+    senha VARCHAR(255) NOT NULL -- Senha do usuário
+);
+
+
+CREATE TABLE logs (
+    id SERIAL PRIMARY KEY,    -- ID único para cada log
+    status VARCHAR(255) NOT NULL,  -- Status (ex: 'sucesso', 'erro', etc.)
+    horario TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,  -- Horário do log
+    usuario_id INTEGER REFERENCES usuarios(id) ON DELETE CASCADE -- Relacionamento com a tabela de usuários
+);
+
+INSERT INTO usuarios (usuario, senha) 
+VALUES ('admin', '147665');
+
+ALTER TABLE usuarios
+ADD COLUMN nivel VARCHAR(50) NOT NULL DEFAULT 'comum';

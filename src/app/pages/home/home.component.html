@@ -42,7 +42,14 @@
 
     </div>
     <p *ngIf="alerta" class="error-message">Alerta em andamento!</p>
-  </div>
+
+    <div *ngIf="isAdmin" class="admin-section">
+        <div class="admin-role">
+        <input class="inputs" type="text" [(ngModel)]="authCode" placeholder="Código de autenticação" disabled />
+        <button (click)="generateAuthCode()"  class="button" >Gerar Código</button>
+    </div>
+      </div>
+    </div>
 
   <app-modal 
   *ngIf="showModal"
